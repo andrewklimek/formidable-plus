@@ -4,8 +4,8 @@ if ( !isset( $field['id'] ) && isset( $field['field_id'] ) ){
 	$field['id'] = $field['field_id'];
 }
 if ( !isset( $field['field_key'] ) ){
-	global $frmdb, $wpdb;
-	$field['field_key'] = $wpdb->get_var( $wpdb->prepare("SELECT `field_key` FROM $frmdb->fields WHERE id = %d", $field['id'] ) );
+	global $wpdb;
+	$field['field_key'] = $wpdb->get_var( $wpdb->prepare("SELECT `field_key` FROM {$wpdb->prefix}frm_fields WHERE id = %d", $field['id'] ) );
 }	
 if ( !isset( $display_only ) ){
 	$display_only = false;

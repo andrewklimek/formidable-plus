@@ -34,17 +34,6 @@ class FrmPlusAppController{
             require(FRMPLUS_PATH .'/css/frm-plus.css');
 		}
     }
-
-	static function & get_frmdb(){
-		// The global $frmdb was introduced in Formidable > 1.02.  To get Formidable Plus working with earlier versions, I'll spoof it here for what I need
-		global $frmdb;
-		if (!isset($frmdb)){
-			$frmdb = new stdClass;
-			global $frm_entry_meta;
-			$frmdb->entry_metas = $frm_entry_meta->table_name;
-		}
-		return $frmdb;
-	}
 	
 	function declare_ajaxurl(){
 		echo '
